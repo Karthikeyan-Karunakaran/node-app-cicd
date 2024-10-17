@@ -28,7 +28,7 @@ pipeline {
             steps {
                 sshagent(['ec2-ssh-key']) {
                     sh 'ssh -o StrictHostKeyChecking=no ec2-user@44.200.161.79 sudo docker pull karthikeyankarunakaran/docker-node-app:latest'
-                    sh 'ssh -o StrictHostKeyChecking=no ec2-user@44.200.161.79 sudo docker run -d -p 3000:3000 karthikeyankarunakaran/docker-node-app:latest'
+                    sh 'ssh -o StrictHostKeyChecking=no ec2-user@44.200.161.79 sudo docker run -d -p 3000:3000 --name my-node-app karthikeyankarunakaran/docker-node-app:latest'
                 }
             }
         }
