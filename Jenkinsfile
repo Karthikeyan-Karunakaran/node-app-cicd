@@ -27,6 +27,13 @@ pipeline {
         stage('Deploy to EC2') {
             steps {
                 sshagent(['ec2-ssh-key']) {
+                    sh'ssh -o StrictHostKeyChecking=no ec2-user@18.207.104.162 '''
+                        if [ "$(sudo docker ps -q -f name=my-node-app)" ]; then
+                            sudo docker rm -f my-node-app
+                        fi
+                        sudo docker run -d -p 3000:3000 --name my-node-app karthikeyankarunakaran/docker-node-app:latest
+                    '''
+                    .
                     sh 'ssh -o StrictHostKeyChecking=no ec2-user@18.207.104.162 sudo docker pull karthikeyankarunakaran/docker-node-app:latest'
                     sh 'ssh -o StrictHostKeyChecking=no ec2-user@18.207.104.162 sudo docker run -d -p 3000:3000 --name my-node-app karthikeyankarunakaran/docker-node-app:latest'
                 }
