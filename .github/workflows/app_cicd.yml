@@ -1,7 +1,7 @@
 name: Build and Deploy
 on: push
 jobs:
-  build and deploy:
+  build-and-deploy:
     name: Build and Deploy the node app
     runs-on: ubuntu-latest
     steps:
