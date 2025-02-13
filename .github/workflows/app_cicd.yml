@@ -7,11 +7,6 @@ jobs:
     steps:
       - name: get current version of code
         uses: actions/checkout@v4
-      
-      - name: setup node
-        uses: actions/setup-node@v4
-        with: 
-          node-version: '20'
 
       - name: Build docker image
         run: |
