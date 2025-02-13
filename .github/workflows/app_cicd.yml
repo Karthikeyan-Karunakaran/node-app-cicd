@@ -16,6 +16,7 @@ jobs:
       - name: Build docker image
         run: |
           docker build -t my-app:latest .
+          docker images myapp:latest
 
       - name: login to Docker registry
         run: |
