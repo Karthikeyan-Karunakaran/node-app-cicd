@@ -15,6 +15,7 @@ jobs:
 
       - name: Build docker image
         run: |
+          ls
           docker build -t my-app:latest .
           docker images myapp:latest
 
