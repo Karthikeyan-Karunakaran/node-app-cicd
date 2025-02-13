@@ -1,0 +1,8 @@
+name: Build and Deploy
+on: push
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: "get current version of code"
+        run: echo "hello!!"
