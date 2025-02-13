@@ -15,7 +15,7 @@ jobs:
 
       - name: Build docker image
         run: |
-          docker build -t ${{ secrets.DOCKER_USERNAME }}/my-app:latest .
+          docker build -t my-app:latest .
           docker images
 
       - name: login to Docker registry
@@ -24,7 +24,7 @@ jobs:
 
       - name: tag and push docker image
         run: |
-          docker tag myapp:latest ${{ secrets.DOCKER_USERNAME }}/myapp:latest
+          docker tag myapp ${{ secrets.DOCKER_USERNAME }}/myapp:latest
           docker push ${{ secrets.DOCKER_USERNAME }}/myapp:latest
 
       - name: Deploy app
